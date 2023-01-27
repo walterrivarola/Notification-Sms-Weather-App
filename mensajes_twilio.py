@@ -44,6 +44,11 @@ for i in tqdm(range(cant_registro)):
 col = ['Fecha', 'Hora', 'Condicion', 'Temperatura', 'Lluvia', 'Prob_lluvia']
 df = pd.DataFrame(datos,columns = col)
 
+#Generamos un nuevo DataFrame
+df_lluvia = df[(df['Lluvia']==1) & (df['Hora']>6) & (df['Hora']<22)]#Guardamos los registros que van desde 06:00 a 22:00 
+df_lluvia = df_lluvia[['Hora', 'Condicion']]#Reducimos a dos columnas, que son los que me interesa utilizar
+df_lluvia.set_index('Hora', inplace=True)
+
 #Verificamos si hay probabilidad de lluvia o no, revisando si hay algun dato en el DataFrame
 if df_lluvia.empty:
     mensaje = '\nHola! \n\n\n El pronostico del tiempo de hoy ' + df['Fecha'][0] + ' en ' + query + ' indica que no hay probabilidad de lluvia'
