@@ -9,6 +9,13 @@ An application that notifies you by SMS at what time of day there is a high prob
 * requests==2.22.0
 * tqdm==4.62.3
 
+## **Registration required to access the API and send SMS**
+* Weather API = https://www.weatherapi.com/
+* Twilio SMS = https://www.twilio.com/
+
+## **Settings**
+Edit the twilio_config.py file and add TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, PHONE_NUMBER, API_KEY_WAPI, between the quotes
+
 ## **API Data source**
 
 + The API used to generate the necessary logs were extracted directly from the Wheather API (https://www.weatherapi.com/).
